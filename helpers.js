@@ -63,20 +63,10 @@ const printHand = (hand) => {
 
 const printCard = (cardInfo, index) => {
   console.log(cardInfo);
-  const suit = document.createElement('div');
-  suit.classList.add('suit', cardInfo.colour);
-  suit.innerText = cardInfo.symbol;
 
-  const name = document.createElement('div');
-  name.classList.add('name', cardInfo.colour);
-  name.innerText = cardInfo.cardDisplay;
-
-  const card = document.createElement('div');
-  card.classList.add('card');
-
-  card.appendChild(name);
-  card.appendChild(suit);
-
+  const card = document.createElement('img');
+  card.src = `/video-poker/img/Minicard/Minicard_${cardInfo.cardDisplay}${cardInfo.suit}.svg.png`;
+  card.className = 'card-image';
   card.addEventListener('click', () => selectToSwap(card, index));
   // card.addEventListener('dragstart', () => dragToSwap(card, index));
   // card.addEventListener('dragend', () => unselect(card, index));

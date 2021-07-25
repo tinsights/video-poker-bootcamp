@@ -26,4 +26,5 @@ const swapCards = () => {
   console.log(hand);
   displayHand = printHand(hand);
   playArea.appendChild(displayHand);
+  calcScore();
 };
