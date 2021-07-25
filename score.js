@@ -1,10 +1,11 @@
 const cardTally = (hand) => {
-// Create Object as tally
+  hand.sort((firstCard, secondCard) => firstCard.rank - secondCard.rank);
+  // Create Object as tally
   const cardNameTally = {};
-  let isFlush = true;
-  let isStraight = true;
   const firstSuit = hand[0].suit;
   const firstRank = hand[0].rank;
+  let isFlush = true;
+  let isStraight = true;
 
   // Loop over hand
   for (let i = 0; i < hand.length; i += 1) {
@@ -42,7 +43,8 @@ const fullHouse = (tally) => getKeyByValue(tally, 3).length === 1 && getKeyByVal
 const fourAces = (tally) => tally.Ace === 4;
 const royalFlush = (tally) => tally.Ace === 1 && tally.Straight && tally.Flush;
 
-const calcScore = (tally) => {
+const calcScore = () => {
+  const tally = cardTally(hand);
   let score = 0;
 
   score = pairs(tally) ? 1 : score;
@@ -56,7 +58,7 @@ const calcScore = (tally) => {
   score = fourAces(tally) ? 9 : score;
   score = royalFlush(tally) ? 10 : score;
   console.log(score);
-  return score;
+  output(score);
 };
 
 const getKeyByValue = (object, value) => Object.keys(object).filter((key) => object[key] === value);

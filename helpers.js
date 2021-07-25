@@ -31,6 +31,8 @@ const generateCard = (rank, suitIndex) => {
     suit: suits[suitIndex],
     colour: suitIndex < 2 ? 'red' : 'black',
     symbol: symbols[suitIndex],
+    selected: false,
+    replaced: false,
   };
   return card;
 };
@@ -48,16 +50,18 @@ const generateDeck = () => {
 // returns the specified number of cards from the deck
 const deal = (cards = 1) => deck.splice(0, cards);
 
-const printHand = (playerHand) => {
+const printHand = (hand) => {
+  hand.sort((firstCard, secondCard) => firstCard.rank - secondCard.rank);
+  playArea.innerHTML = '';
   console.log('Printing Hand');
-  const hand = document.createElement('div');
-  for (let i = 0; i < playerHand.length; i += 1) {
-    hand.appendChild(printCard(playerHand[i]));
+  const displayHand = document.createElement('div');
+  for (let i = 0; i < hand.length; i += 1) {
+    displayHand.appendChild(printCard(hand[i], i));
   }
-  return hand;
+  return displayHand;
 };
 
-const printCard = (cardInfo) => {
+const printCard = (cardInfo, index) => {
   console.log(cardInfo);
   const suit = document.createElement('div');
   suit.classList.add('suit', cardInfo.colour);
@@ -72,6 +76,11 @@ const printCard = (cardInfo) => {
 
   card.appendChild(name);
   card.appendChild(suit);
+
+  // card.addEventListener('click', () => selectToSwap(card, index));
+  card.addEventListener('dragstart', () => dragToSwap(card, index));
+  card.addEventListener('dragend', () => unselect(card, index));
+  card.draggable = true;
 
   return card;
 };
