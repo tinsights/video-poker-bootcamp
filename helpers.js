@@ -77,9 +77,9 @@ const printCard = (cardInfo, index) => {
   card.appendChild(name);
   card.appendChild(suit);
 
-  // card.addEventListener('click', () => selectToSwap(card, index));
-  card.addEventListener('dragstart', () => dragToSwap(card, index));
-  card.addEventListener('dragend', () => unselect(card, index));
+  card.addEventListener('click', () => selectToSwap(card, index));
+  // card.addEventListener('dragstart', () => dragToSwap(card, index));
+  // card.addEventListener('dragend', () => unselect(card, index));
   card.draggable = true;
 
   return card;

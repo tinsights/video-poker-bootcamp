@@ -9,11 +9,12 @@ const nine = generateCard(9, 0);
 const testHand = [queen, ace, king, jack, ten];
 
 const initGame = () => {
+  startButton.disabled = true;
+  replaceButton.disabled = false;
   hand = [];
   generateDeck();
   // hand = testHand;
   hand = hand.concat(deal(5));
-  hand.sort((firstCard, secondCard) => firstCard.rank - secondCard.rank);
 
   displayHand = printHand(hand);
   playArea.appendChild(displayHand);

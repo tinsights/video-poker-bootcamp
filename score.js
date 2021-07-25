@@ -59,6 +59,8 @@ const calcScore = () => {
   score = royalFlush(tally) ? 10 : score;
   console.log(score);
   output(score);
+  startButton.disabled = false;
+  replaceButton.disabled = true;
 };
 
 const getKeyByValue = (object, value) => Object.keys(object).filter((key) => object[key] === value);

@@ -10,19 +10,6 @@ const selectToSwap = (card, index) => {
   hand[index].selected = !hand[index].selected;
 };
 
-const dragToSwap = (card, index) => {
-  card.classList.add('selected');
-  hand[index].selected = true;
-};
-
-const unselect = (card, index) => {
-  if (hand[index].replaced) {
-    card.classList.add('replaced');
-  }
-  card.classList.remove('selected');
-  hand[index].selected = false;
-};
-
 const swapCards = () => {
   for (i = 0; i < hand.length; i += 1) {
     if (hand[i].selected && !hand[i].replaced) {

@@ -4,11 +4,9 @@ const mainContainer = document.createElement('div');
 const startButton = document.createElement('button');
 const replaceButton = document.createElement('button');
 const submitButton = document.createElement('button');
-const dropArea = document.createElement('div');
 const playArea = document.createElement('div');
 const gameInfo = document.createElement('div');
 
-dropArea.className = 'dropzone';
 playArea.className = 'card-container';
 mainContainer.id = 'main-container';
 
@@ -16,7 +14,8 @@ startButton.innerText = 'Start New Game';
 replaceButton.innerText = 'Replace Cards';
 submitButton.innerText = 'Done!';
 
-mainContainer.appendChild(dropArea);
+replaceButton.disabled = true;
+
 mainContainer.appendChild(playArea);
 
 document.body.appendChild(startButton);
@@ -29,8 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
   startButton.addEventListener('click', initGame);
   replaceButton.addEventListener('click', swapCards);
   submitButton.addEventListener('click', calcScore);
-  dropArea.addEventListener('dragover', (event) => { event.preventDefault(); });
-  dropArea.addEventListener('drop', swapCards);
 });
 
 // GLOBAL Constants
