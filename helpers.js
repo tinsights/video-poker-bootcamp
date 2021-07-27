@@ -50,15 +50,14 @@ const generateDeck = () => {
 // returns the specified number of cards from the deck
 const deal = (cards = 1) => deck.splice(0, cards);
 
-const printHand = (hand) => {
+const printHand = () => {
   hand.sort((firstCard, secondCard) => firstCard.rank - secondCard.rank);
-  playArea.innerHTML = '';
+  cardContainer.innerHTML = '';
   console.log('Printing Hand');
-  const displayHand = document.createElement('div');
+
   for (let i = 0; i < hand.length; i += 1) {
-    displayHand.appendChild(printCard(hand[i], i));
+    cardContainer.appendChild(printCard(hand[i], i));
   }
-  return displayHand;
 };
 
 const printCard = (cardInfo, index) => {
@@ -66,12 +65,17 @@ const printCard = (cardInfo, index) => {
 
   const card = document.createElement('img');
   card.src = `/video-poker/img/Minicard/Minicard_${cardInfo.cardDisplay}${cardInfo.suit}.svg.png`;
-  card.className = 'card-image';
-  card.addEventListener('click', () => selectToSwap(card, index));
-  // card.addEventListener('dragstart', () => dragToSwap(card, index));
-  // card.addEventListener('dragend', () => unselect(card, index));
-  card.draggable = true;
-
+  if (!cardInfo.replaced) {
+    card.className = 'card-image';
+    card.addEventListener('click', () => selectToSwap(card, index));
+    return card;
+  }
+  if (calcScore() === 0) {
+    card.className = 'replaced';
+  }
+  else if (calcScore() !== 0) {
+    card.className = 'win';
+  }
   return card;
 };
 

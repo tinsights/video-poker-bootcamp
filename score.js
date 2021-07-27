@@ -50,17 +50,14 @@ const calcScore = () => {
   score = pairs(tally) ? 1 : score;
   score = twoPairs(tally) ? 2 : score;
   score = threeOfAKind(tally) ? 3 : score;
-  score = fullHouse(tally) ? 4 : score;
-  score = fourOfAKind(tally) ? 5 : score;
-  score = tally.Straight ? 6 : score;
-  score = tally.Flush ? 7 : score;
+  score = tally.Straight ? 4 : score;
+  score = tally.Flush ? 5 : score;
+  score = fullHouse(tally) ? 6 : score;
+  score = fourOfAKind(tally) ? 7 : score;
   score = tally.Straight && tally.Flush ? 8 : score;
-  score = fourAces(tally) ? 9 : score;
-  score = royalFlush(tally) ? 10 : score;
+  score = royalFlush(tally) ? 9 : score;
   console.log(score);
-  output(score);
-  startButton.disabled = false;
-  replaceButton.disabled = true;
+  return score;
 };
 
 const getKeyByValue = (object, value) => Object.keys(object).filter((key) => object[key] === value);

@@ -9,13 +9,75 @@
   </head>
 
   <body>
-    <h1 id="header">Video Poker</h1></div>
-
+    <h1 id="header">♣ ♦ Video Poker ♥ ♠</h1></div>
+    <div id="main-container">
+      <div id="score-container">
+        <table id="score-table">
+          <caption>Score Table</caption>
+  <tr>
+    <th>Hand</th>
+    <th>Payout</th>
+  </tr>
+  <tr id="9row">
+    <td>Royal Flush</td>
+    <td id="rFlushPayout">250</td>
+  </tr>
+  <tr id="8row">
+    <td>Straight Flush</td>
+    <td id="sFlushPayout">50</td>
+  </tr>
+  <tr id="7row">
+    <td>Four Of A Kind</td>
+    <td id="fourKindPayout">25</td>
+  </tr>
+  <tr id="6row">
+    <td>Full House</td>
+    <td id="fullHousePayout">9</td>
+  </tr>
+  <tr id="5row">
+    <td>Flush</td>
+    <td id="flushPayout">6</td>
+  </tr>  
+  <tr id="4row">
+    <td>Straight</td>
+    <td id="straightPayout">4</td>
+  </tr>
+  <tr id="3row">
+    <td>Three Of A Kind</td>
+    <td id="threeKindPayout">3</td>
+  </tr>
+  <tr id="2row">
+    <td>Two Pairs</td>
+    <td id="twoPairsPayout">2</td>
+  </tr>
+  <tr id="1row">
+    <td>Jacks ++</td>
+    <td id="jacksPayout">1</td>
+  </tr>
+  </tbody>
+</table>
+      </div>
+      <div id="bet-container">
+        <div id="credit-container">
+          <div id="win-loss"></div>
+          <div id="credits-remaining">₿100</div>
+        </div>
+        <div>
+          <button class="bet-button" id="sub-bet">-</button>
+          <span id="betAmount">₿1</span>
+          <button class="bet-button" id="add-bet">+</button>
+        </div>
+        <div>
+          <button id="dealBtn">Play!</button>
+        </div>
+      </div>
+    </div>
     <!-- Import program logic -->
     <script src="globals.js"></script>
     <script src="helpers.js"></script>
     <script src="replace.js"></script>
     <script src="score.js"></script>
     <script src="script.js"></script>
+    <script src="bet.js"></script>
   </body>
 </html>

@@ -1,37 +1,39 @@
 /* eslint-disable no-undef */
 /* eslint-disable prefer-const */
 // GLOBAL DOM ELEMENTS
-const mainContainer = document.createElement('div');
-const startButton = document.createElement('button');
-const replaceButton = document.createElement('button');
-const submitButton = document.createElement('button');
-const playArea = document.createElement('div');
+// const mainContainer = document.createElement('div');
+const mainContainer = document.getElementById('main-container');
+const startButton = document.getElementById('dealBtn');
+const replaceButton = document.getElementById('replaceBtn');
+const submitButton = document.getElementById('calcBtn');
+const addBetButton = document.getElementById('add-bet');
+const subBetButton = document.getElementById('sub-bet');
+const betAmount = document.getElementById('betAmount');
+const cardContainer = document.createElement('div');
 const gameInfo = document.createElement('div');
+const crtEffect = document.createElement('div');
 
-// const testCard = document.createElement('img');
-// testCard.className = 'card-image';
-// testCard.src = '/video-poker/img/Minicard/Minicard_9D.svg.png';
-// playArea.appendChild(testCard);
+crtEffect.className = 'crt';
+cardContainer.className = 'card-container';
+// mainContainer.id = 'main-container';
+// startButton.innerText = 'Start New Game';
+// replaceButton.innerText = 'Replace Cards';
+// submitButton.innerText = 'Done!';
 
-playArea.className = 'card-container';
-mainContainer.id = 'main-container';
-startButton.innerText = 'Start New Game';
-replaceButton.innerText = 'Replace Cards';
-submitButton.innerText = 'Done!';
-
-replaceButton.disabled = true;
-
-mainContainer.appendChild(playArea);
-document.body.appendChild(startButton);
-document.body.appendChild(replaceButton);
-document.body.appendChild(submitButton);
-document.body.appendChild(mainContainer);
+mainContainer.appendChild(cardContainer);
+mainContainer.appendChild(crtEffect);
+// document.body.appendChild(startButton);
+// document.body.appendChild(replaceButton);
+// document.body.appendChild(submitButton);
+// document.body.appendChild(mainContainer);
 document.body.appendChild(gameInfo);
 
 document.addEventListener('DOMContentLoaded', () => {
   startButton.addEventListener('click', initGame);
-  replaceButton.addEventListener('click', swapCards);
-  submitButton.addEventListener('click', calcScore);
+  // replaceButton.addEventListener('click', swapCards);
+  // submitButton.addEventListener('click', calcScore);
+  addBetButton.addEventListener('click', betIncrement);
+  subBetButton.addEventListener('click', betDecrement);
 });
 
 // GLOBAL Constants
@@ -40,3 +42,7 @@ const symbols = ['♥', '♦', '♣', '♠'];
 const deck = [];
 let hand = [];
 let displayHand = '';
+const odds = [1, 2, 3, 4, 6, 9, 25, 50, 250];
+let credit = 100;
+let bet = 1;
+let gameMode = 0;
