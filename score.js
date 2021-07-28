@@ -40,7 +40,6 @@ const twoPairs = (tally) => getKeyByValue(tally, 2).length === 2;
 const threeOfAKind = (tally) => getKeyByValue(tally, 3).length === 1;
 const fourOfAKind = (tally) => getKeyByValue(tally, 4).length === 1;
 const fullHouse = (tally) => getKeyByValue(tally, 3).length === 1 && getKeyByValue(tally, 2).length === 1;
-const fourAces = (tally) => tally.Ace === 4;
 const royalFlush = (tally) => tally.Ace === 1 && tally.Straight && tally.Flush;
 
 const calcScore = () => {

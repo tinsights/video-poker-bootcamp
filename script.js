@@ -12,7 +12,6 @@ const initGame = () => {
   if (gameMode % 2 === 0) {
     startButton.innerText = 'Swap!';
     resetClass();
-    updateCredit(-bet);
     hand = [];
     // const testHand = [queen, ace, king, jack, ten];
     // hand = testHand;
@@ -31,6 +30,9 @@ const initGame = () => {
     if (score) {
       flashRow(score);
       updateCredit(bet * (odds[score - 1] + 1));
+    }
+    else {
+      updateCredit(-bet);
     }
     gameMode += 1;
   }

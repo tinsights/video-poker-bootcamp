@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // GLOBAL Constants
 const suits = ['H', 'D', 'C', 'S'];
 const symbols = ['♥', '♦', '♣', '♠'];
-const deck = [];
+let deck = [];
 let hand = [];
 let displayHand = '';
 const odds = [1, 2, 3, 4, 6, 9, 25, 50, 250];

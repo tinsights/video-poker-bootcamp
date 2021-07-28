@@ -39,6 +39,7 @@ const generateCard = (rank, suitIndex) => {
 
 // generate a shuffled standard deck of cards
 const generateDeck = () => {
+  deck = [];
   for (let i = 2; i <= 14; i += 1) {
     for (let j = 0; j < 4; j += 1) {
       // generates cards and inserts randomly into deck
