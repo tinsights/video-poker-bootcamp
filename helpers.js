@@ -61,6 +61,13 @@ const printHand = () => {
   }
 };
 
+/**
+ * function that creates an img element and sets the src
+ * as well as class based on properties of the card object
+ * @param {cardObject} cardInfo Card to be displayed
+ * @param {number} index index of card in variable hand.
+ * @returns img element to be appended to container.
+ */
 const printCard = (cardInfo, index) => {
   console.log(cardInfo);
 

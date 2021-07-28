@@ -7,19 +7,28 @@ const fullHousePayout = document.getElementById('fullHousePayout');
 const fourKindPayout = document.getElementById('fourKindPayout');
 const sFlushPayout = document.getElementById('sFlushPayout');
 const rFlushPayout = document.getElementById('rFlushPayout');
+const betAmount = document.getElementById('betAmount');
 
+/**
+ * increases the bet amount to a maximum of 5
+ */
 const betIncrement = () => {
   bet = bet == 5 ? 5 : bet += 1;
   betAmount.innerHTML = `₿${bet}`;
   updatePayouts(bet);
 };
-
+/**
+ * decreases the bet amount to a minimum of 1
+ */
 const betDecrement = () => {
   bet = bet == 1 ? 1 : bet -= 1;
   betAmount.innerHTML = `₿${bet}`;
   updatePayouts(bet);
 };
-
+/**
+ * changes the payout column in the score table
+ * relative to the betting amount
+ */
 const updatePayouts = (bet) => {
   jacksPayout.innerText = `${bet * odds[0]}`;
   twoPairsPayout.innerText = `${bet * odds[1]}`;
