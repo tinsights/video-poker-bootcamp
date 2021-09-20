@@ -72,7 +72,7 @@ const printCard = (cardInfo, index) => {
   console.log(cardInfo);
 
   const card = document.createElement('img');
-  card.src = `/video-poker/img/Minicard/Minicard_${cardInfo.cardDisplay}${cardInfo.suit}.svg.png`;
+  card.src = `img/Minicard/Minicard_${cardInfo.cardDisplay}${cardInfo.suit}.svg.png`;
   if (!cardInfo.replaced) {
     card.className = 'card-image';
     card.addEventListener('click', () => selectToSwap(card, index));
